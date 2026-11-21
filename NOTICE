@@ -1,0 +1,42 @@
+Bounzy
+Copyright (c) 2026 Florian Wilde
+
+Dieses Produkt nutzt bzw. enthält Software Dritter:
+
+Apache Guacamole (guacd, guacamole-common-js)
+  Copyright The Apache Software Foundation
+  Lizenz: Apache License 2.0 – https://www.apache.org/licenses/LICENSE-2.0
+  This product includes software developed at The Apache Software Foundation
+  (https://www.apache.org/).
+  guacd wird aus den Original-Quellen (guacamole-server, Prüfsumme gepinnt) gebaut – im Image
+  bounzy-gateway (zentrale Instanz und Standorte; Lizenz und NOTICE unter /usr/share/doc/guacamole-server/)
+  und bei der LXC-Installation im Container. Geändert: src/libguac/tcp.c (Rückportierung eines
+  Upstream-Fixes nach 1.6.0, siehe deploy/guacd/patches/; ebenfalls Apache License 2.0).
+  guacamole-common-js 1.6.0 ist in packages/guac/vendor/ enthalten (ESM-Hülle ergänzt; geändert:
+  Layer.toCanvas/resize überspringen leere 0×0-Ebenen, siehe packages/guac/patches/);
+  Lizenz- und NOTICE-Datei des Projekts liegen daneben (LICENSE-guacamole, NOTICE-guacamole).
+  Für Tests der Guacamole-Exportskripte liegt das Datenbankschema von guacamole-client 1.6.0
+  (guacamole-auth-jdbc, PostgreSQL und MySQL) unverändert unter tools/guacamole/test/schema-*.sql.
+
+FreeRDP (über guacd)
+  Lizenz: Apache License 2.0
+
+Image bounzy-webview (Remote-Browser), unveränderte Alpine-Pakete als eigene Prozesse:
+  Chromium – BSD-3-Clause u. a. (https://chromium.googlesource.com/chromium/src/+/main/LICENSE)
+  Xvfb (X.Org) – MIT/X11 License
+  x11vnc – GPL-2.0 (Quellen: https://github.com/LibVNC/x11vnc bzw. Alpine aports)
+  DejaVu- und Liberation-Schriften – Bitstream Vera / SIL Open Font License
+
+SimpleWebAuthn (@simplewebauthn/server, @simplewebauthn/browser) – Passkeys
+  Lizenz: MIT License (https://github.com/MasterKale/SimpleWebAuthn/blob/master/LICENSE.md)
+
+Nodemailer – E-Mail-Versand
+  Lizenz: MIT No Attribution (https://github.com/nodemailer/nodemailer/blob/master/LICENSE)
+
+Bei der LXC-Installation zusätzlich aus den offiziellen Quellen geladen (nicht im Release enthalten):
+  Node.js – MIT License (https://github.com/nodejs/node/blob/main/LICENSE)
+  Caddy – Apache License 2.0 (https://github.com/caddyserver/caddy)
+  PostgreSQL – PostgreSQL License (Debian-Paket)
+
+Weitere npm-Abhängigkeiten: siehe pnpm-lock.yaml; die SBOM der Release-Images enthält die
+vollständige Liste inklusive Lizenzen.
